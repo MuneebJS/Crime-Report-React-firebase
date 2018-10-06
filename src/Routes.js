@@ -14,9 +14,6 @@ import GetComplaints from './components/getComplaints'
 import GetMissingPerson from './components/getMissingPerson'
 
 class Routes extends React.Component {
-    // constructor (props) {
-    // super(props)
-    // }
     render() {
         return (
             <Router history={browserHistory}>
