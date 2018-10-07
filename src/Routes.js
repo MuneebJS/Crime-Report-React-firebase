@@ -19,6 +19,7 @@ class Routes extends React.Component {
             <Router history={browserHistory}>
                 <Route path="/" component={Nav}>
                     <IndexRoute component={SignIn} />
+                    <Route path="/home" component={Home}/>
                     <Route path="sign_up" component={SignUp} />
                     <Route path="sign_in" component={SignIn} />
                     <Route path="/crime" component={GetCrimeReport}/>
