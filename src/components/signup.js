@@ -13,13 +13,9 @@ class SignUp extends React.Component {
         ev.preventDefault();
         let email = this.refs.sign_up_email.value;
         let pass = this.refs.sign_up_pass.value;
-        console.log(email, pass)
-        
         const auth = firebase.auth();
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.then((user) => {
-            console.log(user);
-            console.log(email, pass)
             browserHistory.push('/sign_in')
 
         })
