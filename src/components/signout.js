@@ -12,7 +12,6 @@ class SignOut extends React.Component {
         const auth = firebase.auth();
         const promise = auth.signOut()
         promise.then((user) => {
-            console.log(user)
             browserHistory.push('/')
 
         })

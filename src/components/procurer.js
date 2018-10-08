@@ -5,10 +5,6 @@ class ProcurerSelect extends React.Component {
         super();
         this.submitHandler = this.submitHandler.bind(this)
     }
-    // submitHandler(e) {
-        // e.preventDefault();
-        // console.log(this.refs.selectedValue.state.value);
-    // }
     render() {
         return (
             <form onSubmit={this.props.submitHandler}>

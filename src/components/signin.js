@@ -1,15 +1,7 @@
 import React from 'react';
 import * as firebase from 'firebase';
 import { browserHistory } from 'react-router';
-import signOut from './signout'
-// import Btn from './btn'
 import { Link } from 'react-router';
-// import RaisedButton from 'material-ui/RaisedButton';
-
-// const MyAwesomeReactComponent = () => (
-//   <RaisedButton label="Sign In" />
-// );
-
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
@@ -22,18 +14,9 @@ class SignIn extends React.Component {
         ev.preventDefault();
         let email = this.refs.sign_in_email.value;
         let pass = this.refs.sign_in_pass.value;
-        console.log(email, pass)
-
         const auth = firebase.auth();
         const promise = auth.signInWithEmailAndPassword(email, pass);
-        promise.then((user) => {
-            // store.dispatch(this.props.authenticated)
-            console.log(user)
-            console.log(user.uid)
-            // var authenticated = true;
-            // this.setState({
-            // authenticated: authenticated
-            // })
+        promise.then(() => {
             browserHistory.push('/home')
 
         })
@@ -51,8 +34,6 @@ class SignIn extends React.Component {
                     <label htmlFor="password">Password</label> <br />
                     <input type="password" ref="sign_in_pass" defaultValue="123456" /> <br />
                     <input type="submit" value="Sign in" />
-                    {/*<RaisedButton label="Sign In"/>*/}
-                    {/*<MyAwesomeReactComponent />*/}
                 </form>
                 <Link to="/sign_up">
                     Create new Account
@@ -63,12 +44,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn
-// import React from 'react';
-
-
-// const MyAwesomeReactComponent = () => (
-//   <RaisedButton label="Default" />
-// );
-
-// export default MyAwesomeReactComponent;
+export default SignIn;

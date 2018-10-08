@@ -10,66 +10,53 @@ class GetComplaints extends React.Component {
             missingPersonInfo: []
         }
     }
-       componentWillMount() {
-          console.log('hello wolrd')
-                  var rootRef = firebase.database().ref().child('App').child('ComplaintInfo');
-                rootRef.on('child_added', snap => {
-                    var data = snap.val().submitInfo;
-                    // console.log(data.submitInfo);
-                    var arr = [];
-                    arr = this.state.missingPersonInfo;
-                    arr.push(data);
-                    this.setState({
-                        crimeReports: arr
-                    })
-                    console.log(this.state.donorsInfo);
-                })
-                //    this.setState({
-                        // crimeReports: arr
-                    // })
-                //   console.log(this.state.crimeReports);
+    componentWillMount() {
+        var rootRef = firebase.database().ref().child('App').child('ComplaintInfo');
+        rootRef.on('child_added', snap => {
+            var data = snap.val().submitInfo;
+            var arr = [];
+            arr = this.state.missingPersonInfo;
+            arr.push(data);
+            this.setState({
+                crimeReports: arr
+            })
+        })
     }
 
-render() {
+    render() {
 
- return(
-                           <div>
-                               {/*<Heading>Missing Persons List</Heading>*/}
-                                
-                        <table className="table">
-                             <thead>
-                                    <tr>
-                                        <th>Complaint Nature</th>
-                                        <th>Complainer Name</th>
-                                        {/*<th>Blood Group</th>*/}
-                                        {/*<th>State</th>*/}
-                                        <th>City</th>
-                                         <th>Zip Code</th>
-                                        <th>Brief Description</th>
-                                    </tr>
-                                    </thead>
-                            {this.state.missingPersonInfo.map((v, i) => {
-                                   
-                                    {/*{this.state.missingPersonInfo.map((v, i) => {*/}
-                                        return <tbody key={i}>
-                                    <tr>
-                                        {/*<td>{v.crimeNature}</td>*/}
-                                        <td>hello</td>
-                                        <td>{v.complaintNature}</td>
-                                        <td>{v.name}</td>
-                                          <td>{v.city}</td>
-                                        <td>{v.zip}</td>
-                                        <td>{v.complaintDes}</td>
-                                        {/*<td>{v.donorCity}</td>}*/}
-                                    </tr>                
-                                    </tbody>
-                                    })}
-                                
-                                </table>
+        return (
+            <div>
 
-                                                </div>
-              )
-}
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Complaint Nature</th>
+                            <th>Complainer Name</th>
+                            <th>City</th>
+                            <th>Zip Code</th>
+                            <th>Brief Description</th>
+                        </tr>
+                    </thead>
+                    {this.state.missingPersonInfo.map((v, i) => {
+
+                        return <tbody key={i}>
+                            <tr>
+                                <td>hello</td>
+                                <td>{v.complaintNature}</td>
+                                <td>{v.name}</td>
+                                <td>{v.city}</td>
+                                <td>{v.zip}</td>
+                                <td>{v.complaintDes}</td>
+                            </tr>
+                        </tbody>
+                    })}
+
+                </table>
+
+            </div>
+        )
+    }
 }
 
 export default GetComplaints;
